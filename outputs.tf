@@ -13,3 +13,6 @@ output "private-subnet2" {
 output "Dev_instance" {
   value = aws_db_instance.Dev_instance.id
 }
+output "web-Server" {
+  value = aws_instance.web-Server.id
+}

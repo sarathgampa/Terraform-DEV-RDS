@@ -17,3 +17,5 @@ variable "azs" {
   type        = list(string)
 
 }
+variable "instance_type" {}
+variable "instance_class" {}

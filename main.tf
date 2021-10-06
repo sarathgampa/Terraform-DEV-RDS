@@ -97,22 +97,11 @@ resource "aws_security_group_rule" "sg-eg-all" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.sg.id
 }
-resource "aws_db_instance" "Dev_instance" {
-  engine         = "oracle-ee"
-  engine_version = "12.1.0.2.v8"
-  #family               = "oracle-ee-12.1" # DB parameter group
-  #major_engine_version = "12.1"           # DB option group
-  instance_class    = var.instance_class
-  name              = "mydb"
-  username          = "oracle"
-  password          = "123Sarath"
-  allocated_storage = 10
-  availability_zone = var.azs[2]
-}
+
 resource "aws_instance" "web-Server" {
   ami             = "ami-0a23ccb2cdd9286bb"
   instance_type   = var.instance_type
-  subnet_id       = "${var.env}-priv-subnet1"
+  subnet_id       = aws_subnet.my-privsubnet1.id
   security_groups = [aws_security_group.sg.id]
 
   user_data = <<-EOF

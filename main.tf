@@ -107,4 +107,5 @@ resource "aws_db_instance" "Dev_instance" {
   username          = "oracle"
   password          = "123Sarath"
   allocated_storage = 10
+  availability_zone = var.azs[2]
 }

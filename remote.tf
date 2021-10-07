@@ -4,12 +4,12 @@
 #   Example `main.tf`:
 #     # The configuration for the `remote` backend.
 
-terraform {
-  backend "remote" {
-    organization = "sarathtech"
-
-    workspaces {
-      name = "Terraform"
-    }
-  }
-}
+#terraform {
+#  backend "remote" {
+#    organization = "sarathtech"
+#
+#    workspaces {
+#      name = "Terraform"
+#    }
+#  }
+#}

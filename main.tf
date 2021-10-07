@@ -99,10 +99,11 @@ resource "aws_security_group_rule" "sg-eg-all" {
 }
 
 resource "aws_instance" "web-Server" {
-  ami             = "ami-0a23ccb2cdd9286bb"
-  instance_type   = var.instance_type
-  subnet_id       = aws_subnet.my-privsubnet1.id
-  security_groups = [aws_security_group.sg.id]
+  ami               = "ami-0a23ccb2cdd9286bb"
+  instance_type     = var.instance_type
+  subnet_id         = aws_subnet.my-privsubnet1.id
+  availability_zone = var.azs[1]
+  security_groups   = [aws_security_group.sg.id]
 
   user_data = <<-EOF
   #!/bin/bash

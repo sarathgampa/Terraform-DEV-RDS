@@ -16,3 +16,25 @@ jobs:
   steps:
   - name: Checkout
     uses: actions/checkout@v2
+# Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+  - name: Setup Terraform
+    uses: hashicorp/setup-terraform@v1.0.1
+    with:
+      cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+    
+# Initialize a new or existing Terraform working directory by creating initial files.
+  - name: Terraform Init
+    run: terraform init
+
+# Checks that all Terraform configuration files format
+  - name: Terraform Format
+    run: terraform fmt -check
+
+# Terraform validate
+  - name: Terraform Validate
+    run: terraform validate
+
+# Generates an execution plan for Terraform
+  - name: Terraform Plan
+    id: plan
+    run: terraform plan

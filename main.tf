@@ -18,6 +18,7 @@ resource "aws_vpc" "myvpc" {
     Name = "${var.env}-vpc"
   }
 }
+
 resource "aws_subnet" "my-pubsubnet1" {
   cidr_block        = var.subnet-cdir[0]
   availability_zone = var.azs[0]
@@ -26,6 +27,7 @@ resource "aws_subnet" "my-pubsubnet1" {
     Name = "${var.env}-pub-subnet1"
   }
 }
+
 resource "aws_subnet" "my-privsubnet1" {
   cidr_block        = var.subnet-cdir[1]
   availability_zone = var.azs[1]

@@ -15,7 +15,6 @@ variable "subnet-cdir" {
 variable "azs" {
   description = "available AZs"
   type        = list(string)
-
 }
 variable "instance_type" {}
 variable "instance_class" {}
